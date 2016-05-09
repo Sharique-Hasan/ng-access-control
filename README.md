@@ -22,7 +22,7 @@ bower install ng-access-control --save
 
 #####&nbsp;Permission Syntax
 
-```
+```js
     {
       "name": "ACCOUNTANT",
       "permissions": {
@@ -72,7 +72,7 @@ bower install ng-access-control --save
 
 #####&nbsp;Usage in Application
 
-```
+```js
     app.run(['ngAcl', function (ngAcl) {
     
       // Set the ACL permission. which you'd fetch from an API or something.
@@ -93,7 +93,7 @@ bower install ng-access-control --save
 
 Directive will take care of the show and hide of the element according to the permissions provided.
 
-```
+```html
     <!--For update/write purpose mention the mode-->
     <!--For read purpose no need to mention the mode-->
     <!--is-author attribute is used to tell that user is the author of the object-->
