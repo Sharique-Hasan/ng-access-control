@@ -108,7 +108,6 @@
         let seekingPermission = `permissions.${scope.acl}`;
         let allowed = ngAcl.extractPermission(permissions, seekingPermission);
         let generalPermission = ngAcl.getSelfOrGlobalPermission(scope.acl, !!scope.isAuthor);
-        console.log(scope.isAuthor, allowed, tagName);
         let options = {
           mode: scope.mode,
           tagName: tagName,

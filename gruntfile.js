@@ -11,6 +11,7 @@ module.exports = function (grunt) {
   grunt.initConfig(config);
 
   grunt.registerTask('build', [
-
+    'clean',
+    'concat'
   ]);
 };
