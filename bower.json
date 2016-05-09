@@ -6,9 +6,8 @@
   ],
   "description": "Description goes here",
   "keywords": [
-    "angularjs",
-    "acl",
-    "access-control-list"
+    "angular", "access", "control", "access-control",
+    "ng-access-control", "acl", "permission", "permissions", "roles"
   ],
   "main": [
     "dist/ng-access-control.js"
