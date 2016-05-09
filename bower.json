@@ -10,6 +10,9 @@
     "acl",
     "access-control-list"
   ],
+  "main": [
+    "dist/ng-access-control.js"
+  ],
   "license": "MIT",
   "homepage": "",
   "private": false,
