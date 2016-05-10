@@ -16,7 +16,6 @@
         isAuthor: '='
       },
       link: (scope, element) => {
-        let tagName = element[0].tagName.toLowerCase();
         let userRole = ngAcl.getUserCurrentRole();
         let permissions = _.find(ngAcl.getPermission(), { name: userRole });
         let seekingPermission = `permissions.${scope.acl}`;
@@ -24,7 +23,6 @@
         let generalPermission = ngAcl.getSelfOrGlobalPermission(scope.acl, !!scope.isAuthor);
         let options = {
           mode: scope.mode,
-          tagName: tagName,
           allowed: scope.isAuthor ? generalPermission : allowed,
           generalPermission: generalPermission
         };

@@ -1,5 +1,5 @@
 
-(function(){
+;(function(){
   'use strict';
 
   var module = angular.module( "ng-access-control", [] );
@@ -34,9 +34,9 @@
         _currentRole = role;
       },
       getSelfOrGlobalPermission: (permission, isAuthor) => {
-        let permissions = _.find(service.getPermission(), { name: _currentRole });
+        let _permissions = _.find(service.getPermission(), { name: _currentRole });
         let keys = _.first(permission.split('.'));
-        let allowed = service.extractPermission(permissions, `permissions.${keys}`);
+        let allowed = service.extractPermission(_permissions, `_permissions.${keys}`);
         return isAuthor ? allowed.__self : allowed.__global;
       },
       canUpdate: (data, mode) => {
@@ -61,7 +61,7 @@
     let updateData = _.omit(_.clone(data), 'isAuthor');
     for(var key in updateData){
       if(_.isPlainObject(updateData[key])){
-        let basePlusKey = `permissions.${key}`;
+        let basePlusKey = `_permissions.${key}`;
         updateData[key] = _checkChildObject(basePlusKey, updateData[key], isAuthor);
       }
       //Fixme
@@ -69,19 +69,17 @@
   }
 
   function _checkChildObject(baseKey, childObject, isAuthor) {
-    let permissions = _.find(service.getPermission(), { name: _currentRole });
+    let _permissions = _.find(service.getPermission(), { name: _currentRole });
     for(var key in childObject){
       if(_.isPlainObject(childObject[key])){
         childObject[key] = _checkChildObject(key, childObject[key]);
       }
       else{
         let basePlusKey = `${baseKey}.${key}`;
-        let allowed = service.extractPermission(permissions, basePlusKey);
+        let allowed = service.extractPermission(_permissions, basePlusKey);
         //Fixme
       }
     }
   }
-
-
 
 })();
