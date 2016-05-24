@@ -99,3 +99,11 @@ Directive will take care of the show and hide of the element according to the pe
     <!--is-author attribute is used to tell that user is the author of the object-->
     <input acl="Employee.search" mode="UPDATE" is-author="false" type="text" ng-model="vm.searchKeyword" class="form-control" name="email" placeholder="Enter email">
 ```
+
+#####&nbsp;Usage of ngAcl service
+
+Pass in the resource name and *.can* method will return *true* or *false* if the resource is allowed of not.
+
+```js
+    let allower  = ngAcl.can('Employee_Create')
+```

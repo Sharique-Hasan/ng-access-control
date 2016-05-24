@@ -1366,11 +1366,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         var allowed = service.extractPermission(_permissions, "_permissions." + keys);
         return isAuthor ? allowed.__self : allowed.__global;
       },
-      canUpdate: function canUpdate(data, mode) {
-        //let currentRole = service.getUserCurrentRole();
-        //_canUpdate(data, mode, currentRole);
+      can: function can(resource) {
+        var currentRole = service.getUserCurrentRole();
+        var permission = _.find(service.getPermission(), { name: currentRole });
+        return _.includes(permission.allowedResources, resource);
       }
-
     };
 
     return service;

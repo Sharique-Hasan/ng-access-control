@@ -39,11 +39,11 @@
         let allowed = service.extractPermission(_permissions, `_permissions.${keys}`);
         return isAuthor ? allowed.__self : allowed.__global;
       },
-      canUpdate: (data, mode) => {
-        //let currentRole = service.getUserCurrentRole();
-        //_canUpdate(data, mode, currentRole);
+      can: (resource) => {
+        let currentRole = service.getUserCurrentRole();
+        let permission = _.find(service.getPermission(), { name: currentRole });
+        return _.includes(permission.allowedResources, resource);
       }
-
     };
 
     return service;
