@@ -1,6 +1,6 @@
 {
   "name": "ng-access-control",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "AngularJS access control",
   "main": "gruntfile.js",
   "directories": {
