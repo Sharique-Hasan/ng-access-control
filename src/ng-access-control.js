@@ -36,7 +36,7 @@
       getSelfOrGlobalPermission: (permission, isAuthor) => {
         let _permissions = _.find(service.getPermission(), { name: _currentRole });
         let keys = _.first(permission.split('.'));
-        let allowed = service.extractPermission(_permissions, `_permissions.${keys}`);
+        let allowed = service.extractPermission(_permissions, `permissions.${keys}`);
         return isAuthor ? allowed.__self : allowed.__global;
       },
       can: (resource) => {

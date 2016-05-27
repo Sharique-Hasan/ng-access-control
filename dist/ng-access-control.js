@@ -37,7 +37,7 @@
       getSelfOrGlobalPermission: function getSelfOrGlobalPermission(permission, isAuthor) {
         var _permissions = _.find(service.getPermission(), { name: _currentRole });
         var keys = _.first(permission.split('.'));
-        var allowed = service.extractPermission(_permissions, '_permissions.' + keys);
+        var allowed = service.extractPermission(_permissions, 'permissions.' + keys);
         return isAuthor ? allowed.__self : allowed.__global;
       },
       can: function can(resource) {
