@@ -124,8 +124,8 @@
       var remove = void 0,
           disable = void 0;
       var mode = options.mode || 'READ';
-      remove = !(_.pick(options.allowed, 'READ') === undefined ? options.generalPermission['READ'] : options.allowed['READ']);
-      disable = !(!remove ? _.pick(options.allowed, mode) === undefined ? options.generalPermission[mode] : options.allowed[mode] : false);
+      remove = !(_.isEmpty(_.pick(options.allowed, 'READ')) ? options.generalPermission['READ'] : options.allowed['READ']);
+      disable = !(!remove ? _.isEmpty(_.pick(options.allowed, mode)) ? options.generalPermission[mode] : options.allowed[mode] : false);
       return { remove: remove, disable: disable };
     }
   }
